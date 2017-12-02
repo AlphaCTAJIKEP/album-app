@@ -1,0 +1,64 @@
+
+<h2 class="text-center">{{album.name}}</h2>
+<a [routerLink]="'/'" class="btn btn-primary">Back to main page</a>
+<button class="btn btn-success" (click)="open(content)">Add movie to album</button>
+<p>{{album.description}}</p>
+<hr>
+<div class="row">
+  <div class="col-md-4 col-xs-12 text-center" style="margin-bottom:20px" *ngFor="let movie of album['url']">
+    <div class="card">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe [src]="movie['urlId']" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="card-block">
+        <h4 class="card-title">{{movie.name}}</h4>
+        <p class="card-text">{{movie.description}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Add movie</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group" [ngClass]="{'has-error': addForm.get('title').invalid && addForm.get('title').touched}">
+        <label>Title <span style="color:red;">*</span></label>
+        <input type="text" class="form-control" formControlName="title">
+        <p *ngIf="addForm.get('title').invalid && addForm.get('title').touched">
+          <span *ngIf="addForm.get('title').errors['required']">Can't be empty</span>
+        </p>
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': addForm.get('description').invalid && addForm.get('description').touched}">
+        <label>Description <span style="color:red;">*</span></label>
+        <input type="text" class="form-control" formControlName="description">
+        <p *ngIf="addForm.get('description').invalid && addForm.get('description').touched">
+          <span *ngIf="addForm.get('description').errors['required']">Can't be empty</span>
+
+        </p>
+      </div>
+      <div class="form-group" [ngClass]="{'has-error': addForm.get('url').invalid && addForm.get('url').touched}">
+        <label>You tube url <span style="color:red;">*</span></label>
+        <input type="url" class="form-control" formControlName="url">
+        <p *ngIf="addForm.get('url').invalid && addForm.get('url').touched">
+          <span *ngIf="addForm.get('url').errors['required']">Can't be empty</span>
+          <span *ngIf="addForm.get('url').errors['urlError']">Invalid url</span>
+        </p>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-success"
+        [disabled]="addForm.invalid"
+      >
+        Submit
+      </button>
+      <button type="button" class="btn btn-outline-dark" (click)="c()">Close</button>
+    </form>
+  </div>
+
+</ng-template>

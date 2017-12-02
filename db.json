@@ -1,0 +1,74 @@
+{
+  "albums":[
+    {
+      "name":"First-album",
+      "description":"Some desc",
+      "id":1,
+      "url":[
+        {
+          "urlId":"g-fCULPNd2I",
+          "name": "People are awesome",
+          "description": "Some desc",
+          "id":1
+        },
+        {
+          "urlId":"z9NFbXNghuE",
+          "name": "People are awesome",
+          "description": "Some desc",
+          "id":2
+        },
+        {
+          "urlId":"P3vg0aWK5-k",
+          "name": "People are awesome",
+          "description": "Some desc",
+          "id":3
+        },
+        {
+          "urlId":"4m_Uqhmz6cA",
+          "name": "People are awesome",
+          "description": "Some desc",
+          "id":4
+        }
+      ]
+    },
+    {
+      "name":"Second-album",
+      "description":"Some desc",
+      "id":2,
+      "url":[
+        {
+          "urlId":"hssdfsdf",
+          "name": "People are awesome",
+          "description": "Some desc",
+          "id":1
+        }
+      ]
+    },
+    {
+      "name":"Third-album",
+      "description":"Some desc",
+      "id":3,
+      "url":[
+        {
+          "urlId":"hssdfsdf",
+          "name": "People are awesome",
+          "description": "Some desc",
+          "id":1
+        }
+      ]
+    },
+    {
+      "name":"Fourth-album",
+      "description":"Some desc",
+      "id":4,
+      "url":[
+        {
+          "urlId":"hssdfsdf",
+          "name": "People are awesome",
+          "description": "Some desc",
+          "id":1
+        }
+      ]
+    }
+  ]
+}
