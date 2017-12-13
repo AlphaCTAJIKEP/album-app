@@ -16,8 +16,9 @@ export class HomePageComponent implements OnInit {
   ngOnInit () {
     this.server
       .getAlbums()
-      .subscribe((albums: any) => {
-        this.albums = albums;
+      .subscribe((data: any) => {
+        console.log(data.albums);
+        this.albums = data.albums;
       });
   }
 }
