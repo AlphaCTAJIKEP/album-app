@@ -19,9 +19,9 @@ export class AlbumPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.server.getAlbum(+this.route.snapshot.params['id'])
-      .subscribe((albumItem: any) => {
-        this.album = albumItem;
+    this.server.getAlbums()
+      .subscribe((data: any) => {
+        this.album = data.albums[+this.route.snapshot.params['id'] - 1];
         for (let link of this.album['url']) {
           let url = link.urlId;
           link['urlId'] = this.server.getSafeUrl(url);
@@ -69,7 +69,6 @@ export class AlbumPageComponent implements OnInit {
     let description = this.addForm.value['description'];
     let url = this.addForm.value['url'];
     let youtubeId = this.server.getYouTubeUrl(url);
-    console.log(this.album);
     this.album['url'].push({
       name,
       description,
