@@ -8,13 +8,9 @@ export class ServerService {
   constructor(private http: Http, private sanitizer: DomSanitizer) {}
 
   getAlbums() {
-    return this.http.get('http://localhost:3000/albums')
+    return this.http.get('/assets/db.json')
       .map((response: Response) => response.json());
-  }
 
-  getAlbum(id: number) {
-    return this.http.get(`http://localhost:3000/albums/${id}`)
-      .map((response: Response) => response.json());
   }
 
   getYouTubeUrl(url: string) {
